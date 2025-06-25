@@ -16,7 +16,7 @@ internal class PawnRenderer_LayingFacing
             return true;
         }
 
-        __result = comp.rotation;
+        __result = comp.Rotation;
         return false;
     }
 }

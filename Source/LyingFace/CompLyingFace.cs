@@ -8,14 +8,14 @@ namespace LyingFace;
 
 public class CompLyingFace : ThingComp
 {
-    public Rot4 rotation = Rot4.Invalid;
+    public Rot4 Rotation = Rot4.Invalid;
 
     public override void Initialize(CompProperties props)
     {
         base.Initialize(props);
-        if (rotation == Rot4.Invalid && parent is Pawn pawn)
+        if (Rotation == Rot4.Invalid && parent is Pawn pawn)
         {
-            rotation = DefaultRotation(pawn);
+            Rotation = defaultRotation(pawn);
         }
     }
 
@@ -29,7 +29,7 @@ public class CompLyingFace : ThingComp
         yield return new Command_Action
         {
             defaultLabel = "LyingFace.SetLyingFace".Translate(),
-            icon = getIcon(rotation),
+            icon = getIcon(Rotation),
             action = delegate
             {
                 var list = new List<FloatMenuOption>();
@@ -43,7 +43,7 @@ public class CompLyingFace : ThingComp
 
                     void Action()
                     {
-                        rotation = rot;
+                        Rotation = rot;
                     }
                 }
 
@@ -56,21 +56,20 @@ public class CompLyingFace : ThingComp
     public override void PostExposeData()
     {
         var invalid = Rot4.Invalid;
-        Scribe_Values.Look(ref rotation, "lyingFace", invalid);
-        if (Scribe.mode == LoadSaveMode.LoadingVars && rotation == Rot4.Invalid && parent is Pawn pawn)
+        Scribe_Values.Look(ref Rotation, "lyingFace", invalid);
+        if (Scribe.mode == LoadSaveMode.LoadingVars && Rotation == Rot4.Invalid && parent is Pawn pawn)
         {
-            rotation = DefaultRotation(pawn);
+            Rotation = defaultRotation(pawn);
         }
     }
 
-    private static Rot4 DefaultRotation(Pawn pawn)
+    private static Rot4 defaultRotation(Pawn pawn)
     {
         if (pawn.RaceProps.Humanlike)
         {
             switch (pawn.thingIDNumber % 4)
             {
                 case 0:
-                    return Rot4.South;
                 case 1:
                     return Rot4.South;
                 case 2:
@@ -88,7 +87,6 @@ public class CompLyingFace : ThingComp
                 case 1:
                     return Rot4.East;
                 case 2:
-                    return Rot4.West;
                 case 3:
                     return Rot4.West;
             }
@@ -97,7 +95,7 @@ public class CompLyingFace : ThingComp
         return Rot4.Random;
     }
 
-    public static Texture2D getIcon(Rot4 rot)
+    private static Texture2D getIcon(Rot4 rot)
     {
         return rot.AsInt switch
         {

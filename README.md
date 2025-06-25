@@ -1,4 +1,4 @@
-# [Lying Face (Continued)]()
+# [Lying Face (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3414493243)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -47,4 +47,6 @@ Old versions of the mod can be found on Dropbox.
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
+[![Image](https://img.shields.io/github/v/release/emipa606/LyingFace?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3414493243) | tags:  sleeping rotation

@@ -7,7 +7,7 @@ namespace LyingFace;
 
 public class CompBedEx : ThingComp
 {
-    public List<Pawn> owners = [];
+    private List<Pawn> owners = [];
 
     private Building_Bed Bed => parent as Building_Bed;
 
